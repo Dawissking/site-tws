@@ -1893,6 +1893,427 @@ select.form-control { cursor: pointer; }
 }
 
 /* ============================================================
+   ADMINISTRATIVE DOCUMENTS & CERTIFICATIONS (A PROPOS)
+   ============================================================ */
+.admin-docs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 36px;
+}
+.admin-doc-card {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.admin-doc-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--blue-light);
+}
+.admin-doc-preview {
+  position: relative;
+  background: #0f224a;
+  border-bottom: 1px solid var(--border-color);
+  height: 310px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.admin-doc-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s ease;
+}
+.admin-doc-preview:hover img {
+  transform: scale(1.03);
+}
+.admin-doc-zoom-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 30, 80, 0.75);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(2px);
+  text-align: center;
+  padding: 16px;
+}
+.admin-doc-preview:hover .admin-doc-zoom-overlay {
+  opacity: 1;
+}
+.admin-doc-zoom-overlay svg {
+  width: 32px;
+  height: 32px;
+  stroke: var(--green-light);
+}
+.admin-doc-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.admin-doc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  margin-bottom: 14px;
+  align-self: flex-start;
+}
+.admin-doc-badge--mali {
+  background: rgba(21, 148, 71, 0.12);
+  color: #159447;
+  border: 1px solid rgba(21, 148, 71, 0.3);
+}
+.admin-doc-badge--ias {
+  background: rgba(14, 76, 174, 0.12);
+  color: var(--blue-primary);
+  border: 1px solid rgba(14, 76, 174, 0.3);
+}
+.admin-doc-badge--iso {
+  background: rgba(201, 160, 80, 0.15);
+  color: #926615;
+  border: 1px solid rgba(201, 160, 80, 0.4);
+}
+.admin-doc-card h3 {
+  font-size: 1.15rem;
+  color: var(--blue-deep);
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+.admin-doc-meta {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.admin-doc-meta li strong {
+  color: var(--text-dark);
+}
+.admin-doc-desc {
+  font-size: 0.88rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin-top: auto;
+  border-top: 1px solid var(--border-color);
+  padding-top: 14px;
+}
+.admin-notice-box {
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--blue-primary);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  margin-top: 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.admin-notice-box svg {
+  flex-shrink: 0;
+  color: var(--blue-primary);
+  margin-top: 2px;
+}
+
+/* ============================================================
+   IMMOBILIER SECTION STYLES
+   ============================================================ */
+.immo-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(112, 201, 74, 0.15);
+  color: var(--green-light);
+  border: 1px solid rgba(112, 201, 74, 0.35);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 20px;
+}
+.immo-zone-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+.immo-zone-card {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.immo-zone-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue-primary), var(--green-primary));
+}
+.immo-zone-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--blue-light);
+}
+.immo-zone-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(14, 76, 174, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-primary);
+  margin-bottom: 18px;
+}
+.immo-zone-card h3 {
+  font-size: 1.25rem;
+  color: var(--blue-deep);
+  margin-bottom: 10px;
+}
+.immo-zone-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.immo-zone-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 14px;
+}
+.immo-zone-features li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--blue-deep);
+}
+.immo-zone-features svg {
+  color: #159447;
+  flex-shrink: 0;
+}
+.immo-activity-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 36px;
+}
+.immo-activity-card {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.immo-activity-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.immo-activity-media {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+.immo-activity-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.immo-activity-card:hover .immo-activity-media img {
+  transform: scale(1.05);
+}
+.immo-activity-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.immo-activity-badge--achat {
+  background: var(--blue-deep);
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+.immo-activity-badge--vente {
+  background: #159447;
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+.immo-activity-body {
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.immo-activity-body h3 {
+  font-size: 1.4rem;
+  color: var(--blue-deep);
+  margin-bottom: 12px;
+}
+.immo-activity-body p {
+  color: var(--text-dark);
+  font-size: 0.94rem;
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+.immo-activity-points {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.immo-activity-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+.immo-activity-points svg {
+  color: #159447;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.immo-transparency-card {
+  background: linear-gradient(135deg, #0d2254 0%, var(--blue-deep) 100%);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  color: var(--white);
+  margin: 40px 0;
+  box-shadow: 0 16px 40px rgba(10, 30, 80, 0.25);
+  border: 1px solid rgba(112, 201, 74, 0.2);
+}
+.immo-transparency-inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.immo-transparency-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(112, 201, 74, 0.15);
+  border: 2px solid rgba(112, 201, 74, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--green-light);
+}
+.immo-transparency-text h3 {
+  color: var(--white);
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+}
+.immo-transparency-text p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+.immo-transparency-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.immo-transparency-badges span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 992px) {
+  .admin-docs-grid,
+  .immo-zone-grid,
+  .immo-activity-grid {
+    grid-template-columns: 1fr;
+  }
+  .immo-transparency-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .immo-transparency-badges {
+    justify-content: center;
+  }
+.alert-box {
+  padding: 18px 22px;
+  border-radius: var(--radius-md);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.alert-box.alert-success {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+}
+.alert-box.alert-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+/* ============================================================
    LIGHTBOX MODAL
    ============================================================ */
 .tsw-lightbox {

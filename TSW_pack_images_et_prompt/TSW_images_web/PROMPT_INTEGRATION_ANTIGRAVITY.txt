@@ -1,0 +1,25 @@
+PROMPT DE MISE À JOUR — INTÉGRATION DES IMAGES TSW
+
+Interviens directement dans le projet existant du site TOPO SABUGNOUMA WASSA (TSW). Utilise les dix images distinctes de ce pack. N’utilise pas le montage complet comme une seule image et ne remplace pas ces visuels par des images génériques.
+
+1. Décompresse les images dans le dossier d’assets/images existant du projet, ou dans le dossier d’images déjà utilisé par le site. Conserve les noms des fichiers.
+2. Remplace les images répétées dans « Services » et « Réalisations » par des visuels adaptés :
+- 01_topographie_station_totale.jpg : topographie de terrain et station totale.
+- 02_parcelles_lotissement.jpg : parcelles et lotissement.
+- 03_drone_cartographie_aerienne.jpg : drone et cartographie aérienne.
+- 04_leve_foncier_gnss.jpg : levé foncier et positionnement GNSS.
+- 05_cartographie_sig_bureau.jpg : cartographie et systèmes d’information géographique.
+- 06_chantier_terrassement.jpg : chantier et terrassement.
+- 07_implantation_route.jpg : topographie et implantation routière.
+- 08_modelisation_terrain_3d.jpg : modélisation numérique du terrain.
+- 09_infrastructure_pont.jpg : topographie d’infrastructure et ouvrage d’art.
+- 10_parcelle_a_vendre.jpg : illustration pour la rubrique immobilière.
+3. Dans « Réalisations », répartis plusieurs images différentes selon le sujet de chaque carte. Évite de répéter la même image lorsqu’un autre visuel pertinent est disponible.
+4. Dans « Immobilier », privilégie les images de parcelles et de lotissement. Ces images sont illustratives et ne doivent pas être présentées comme des photographies de parcelles réellement disponibles chez TSW.
+5. Les documents d’agrément et certificats restent dans « À propos » et ne doivent pas illustrer les services, les réalisations ou l’immobilier.
+6. Conserve l’identité visuelle existante. Utilise des recadrages propres, sans déformer les images, ajoute un texte alternatif descriptif et vérifie l’affichage sur ordinateur et mobile.
+7. Vérifie tous les chemins, l’absence d’images cassées et la cohérence entre les images, les titres et les descriptions.
+8. N’invente aucune réalisation réelle, disponibilité, superficie ou prix de parcelle. Ces informations seront ajoutées ultérieurement à partir de données confirmées.
+9. Ne reconstruis pas le site depuis zéro. Modifie le projet existant et indique les fichiers modifiés ainsi que les éventuelles tâches restantes.
+
+Objectif : enrichir visuellement les sections « Services », « Réalisations » et « Immobilier » à l’aide de dix fichiers images individuels et correctement nommés.

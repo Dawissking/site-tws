@@ -51,12 +51,17 @@ function clean_input($data) {
     return htmlspecialchars(trim(strip_tags($data)), ENT_QUOTES, 'UTF-8');
 }
 
+$form_source  = clean_input($_POST['form_source'] ?? 'contact');
+$is_immo      = ($form_source === 'immobilier' || !empty($_POST['type_demande']));
+
 $nom          = clean_input($_POST['nom'] ?? '');
 $telephone    = clean_input($_POST['telephone'] ?? '');
 $email        = clean_input($_POST['email'] ?? '');
+$type_demande = clean_input($_POST['type_demande'] ?? '');
+$zone         = clean_input($_POST['zone'] ?? '');
 $prestation_k = clean_input($_POST['prestation'] ?? '');
 $localisation = clean_input($_POST['localisation'] ?? '');
-$besoin       = clean_input($_POST['besoin'] ?? '');
+$besoin       = clean_input($_POST['besoin'] ?? $_POST['message'] ?? '');
 $delai_k      = clean_input($_POST['delai'] ?? '');
 
 // Validation des champs obligatoires
@@ -74,16 +79,26 @@ if (!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errors[] = "L'adresse e-mail renseignée n'est pas valide.";
 }
 
-if (empty($prestation_k)) {
-    $errors[] = "Veuillez sélectionner un type de prestation.";
-}
-
-if (empty($localisation)) {
-    $errors[] = "La localisation géographique du projet est obligatoire.";
-}
-
-if (empty($besoin) || mb_strlen($besoin) < 10) {
-    $errors[] = "Veuillez préciser la description de votre projet (minimum 10 caractères).";
+if ($is_immo) {
+    if (empty($type_demande)) {
+        $errors[] = "Veuillez sélectionner le type de demande (Achat ou Vente).";
+    }
+    if (empty($zone)) {
+        $errors[] = "Veuillez sélectionner une des 3 zones d'intervention.";
+    }
+    if (empty($besoin) || mb_strlen($besoin) < 10) {
+        $errors[] = "Veuillez préciser la description de votre besoin immobilier (minimum 10 caractères).";
+    }
+} else {
+    if (empty($prestation_k)) {
+        $errors[] = "Veuillez sélectionner un type de prestation.";
+    }
+    if (empty($localisation)) {
+        $errors[] = "La localisation géographique du projet est obligatoire.";
+    }
+    if (empty($besoin) || mb_strlen($besoin) < 10) {
+        $errors[] = "Veuillez préciser la description de votre projet (minimum 10 caractères).";
+    }
 }
 
 if (!empty($errors)) {
@@ -111,6 +126,9 @@ $prestations_map = [
 ];
 $prestation_libelle = $prestations_map[$prestation_k] ?? $prestation_k;
 
+// Type de demande immobilière
+$type_immo_libelle = ($type_demande === 'achat' ? 'Achat de parcelle' : ($type_demande === 'vente' ? 'Vente de parcelle' : $type_demande));
+
 // Correspondance des délais
 $delais_map = [
     'urgent'  => 'Urgent (dans les 48 heures)',
@@ -127,7 +145,11 @@ $ip_client  = $_SERVER['REMOTE_ADDR'] ?? 'Non déterminée';
 // ============================================================
 // COMPOSITION DU SUJET ET DU CORPS DU COURRIEL (HTML & TEXTE)
 // ============================================================
-$subject = "=?UTF-8?B?" . base64_encode("Nouvelle demande de devis : {$prestation_libelle} - {$nom}") . "?=";
+if ($is_immo) {
+    $subject = "=?UTF-8?B?" . base64_encode("Demande Immobilière TSW : {$type_immo_libelle} [{$zone}] - {$nom}") . "?=";
+} else {
+    $subject = "=?UTF-8?B?" . base64_encode("Nouvelle demande de devis : {$prestation_libelle} - {$nom}") . "?=";
+}
 
 // Template HTML
 $email_html = "
@@ -144,9 +166,9 @@ $email_html = "
     <tr>
       <td style='background:linear-gradient(135deg, #102d70 0%, #0d2358 100%); padding:28px 24px; text-align:center;'>
         <h1 style='margin:0; font-size:22px; font-weight:800; color:#ffffff; letter-spacing:0.5px;'>TOPO SABUGNOUMA WASSA</h1>
-        <div style='margin-top:6px; font-size:13px; color:#159447; font-weight:700; text-transform:uppercase; letter-spacing:1px;'>Ingénierie Géomatique, Topographie & Cartographie au Mali</div>
+        <div style='margin-top:6px; font-size:13px; color:#159447; font-weight:700; text-transform:uppercase; letter-spacing:1px;'>Ingénierie Géomatique, Topographie & Transactions Foncières</div>
         <div style='margin-top:14px; display:inline-block; background:rgba(255,255,255,0.15); color:#ffffff; padding:6px 14px; border-radius:20px; font-size:12px; font-weight:600;'>
-          NOUVELLE DEMANDE DE DEVIS
+          " . ($is_immo ? "DEMANDE IMMOBILIÈRE (ACHAT / VENTE)" : "NOUVELLE DEMANDE DE DEVIS") . "
         </div>
       </td>
     </tr>
@@ -155,7 +177,7 @@ $email_html = "
     <tr>
       <td style='padding:28px 24px;'>
         <p style='margin-top:0; font-size:15px; line-height:1.6; color:#334155;'>
-          Une nouvelle demande de devis ou de contact a été transmise depuis le site web officiel.
+          " . ($is_immo ? "Une nouvelle demande concernant l'achat ou la vente d'une parcelle a été reçue depuis la rubrique Immobilier du site web." : "Une nouvelle demande de devis ou de contact a été transmise depuis le site web officiel.") . "
         </p>
 
         <table width='100%' cellspacing='0' cellpadding='8' style='border-collapse:collapse; margin-top:16px; font-size:14px;'>
@@ -171,6 +193,16 @@ $email_html = "
             <td style='padding:10px; font-weight:700; color:#102d70;'>Adresse e-mail :</td>
             <td style='padding:10px; color:#1e293b;'>" . (!empty($email) ? "<a href='mailto:{$email}' style='color:#0878e8; text-decoration:none;'>{$email}</a>" : "<span style='color:#94a3b8; font-style:italic;'>Non renseignée</span>") . "</td>
           </tr>
+" . ($is_immo ? "
+          <tr style='border-bottom:1px solid #e2e8f0;'>
+            <td style='padding:10px; font-weight:700; color:#102d70;'>Type de demande :</td>
+            <td style='padding:10px; color:#1e293b;'><span style='background:#dcfce7; color:#15803d; padding:3px 8px; border-radius:4px; font-weight:700;'>" . $type_immo_libelle . "</span></td>
+          </tr>
+          <tr style='background:#f8fafc; border-bottom:1px solid #e2e8f0;'>
+            <td style='padding:10px; font-weight:700; color:#102d70;'>Zone concernée :</td>
+            <td style='padding:10px; color:#1e293b;'><span style='background:#e0f2fe; color:#0369a1; padding:3px 8px; border-radius:4px; font-weight:600;'>" . $zone . "</span></td>
+          </tr>
+" : "
           <tr style='border-bottom:1px solid #e2e8f0;'>
             <td style='padding:10px; font-weight:700; color:#102d70;'>Prestation souhaitée :</td>
             <td style='padding:10px; color:#1e293b;'><span style='background:#e0f2fe; color:#0369a1; padding:3px 8px; border-radius:4px; font-weight:600;'>" . $prestation_libelle . "</span></td>
@@ -183,11 +215,12 @@ $email_html = "
             <td style='padding:10px; font-weight:700; color:#102d70;'>Délai souhaité :</td>
             <td style='padding:10px; color:#1e293b;'>" . $delai_libelle . "</td>
           </tr>
+") . "
         </table>
 
         <!-- Description -->
         <div style='margin-top:24px; padding:16px; background:#f8fafc; border-left:4px solid #159447; border-radius:4px;'>
-          <div style='font-size:13px; font-weight:700; text-transform:uppercase; color:#102d70; margin-bottom:8px;'>Description du projet :</div>
+          <div style='font-size:13px; font-weight:700; text-transform:uppercase; color:#102d70; margin-bottom:8px;'>" . ($is_immo ? "Description du besoin immobilier / Détails de la parcelle :" : "Description du projet :") . "</div>
           <div style='font-size:14px; line-height:1.6; color:#1e293b; white-space:pre-wrap;'>" . nl2br($besoin) . "</div>
         </div>
 

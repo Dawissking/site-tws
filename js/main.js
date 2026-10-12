@@ -258,6 +258,157 @@ if (contactForm) {
   });
 }
 
+// ─── IMMOBILIER FORM ─────────────────────────────────────────
+const immoForm = document.getElementById('immoForm');
+if (immoForm) {
+  const immoFields = {
+    immo_nom: { required: true, label: 'Nom et prénom' },
+    immo_telephone: { required: true, label: 'Téléphone', pattern: /^[+\d\s\-().]{8,20}$/ },
+    immo_email: { required: false, label: 'Adresse e-mail', pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
+    immo_type: { required: true, label: 'Type de demande' },
+    immo_zone: { required: true, label: 'Zone concernée' },
+    immo_message: { required: true, label: 'Description du besoin', minLength: 10 },
+    immo_consentement: { required: true, label: 'Consentement', type: 'checkbox' }
+  };
+
+  // Live validation
+  Object.keys(immoFields).forEach(key => {
+    const el = document.getElementById(key);
+    const errEl = document.getElementById(key + 'Error');
+    if (!el) return;
+
+    el.addEventListener('blur', () => validateField(key, el, errEl, immoFields[key]));
+    if (el.type === 'checkbox') {
+      el.addEventListener('change', () => validateField(key, el, errEl, immoFields[key]));
+    } else {
+      el.addEventListener('input', () => {
+        if (el.classList.contains('error')) {
+          validateField(key, el, errEl, immoFields[key]);
+        }
+      });
+    }
+  });
+
+  // Char count for textarea
+  const immoMsgField = document.getElementById('immo_message');
+  const immoCharCount = document.getElementById('immoCharCount');
+  if (immoMsgField && immoCharCount) {
+    immoMsgField.addEventListener('input', () => {
+      immoCharCount.textContent = immoMsgField.value.length + ' / 1000';
+    });
+  }
+
+  // Helper to compile dynamic WhatsApp message for real estate
+  function getImmoWhatsAppUrl() {
+    const nomVal = document.getElementById('immo_nom')?.value.trim() || '';
+    const telVal = document.getElementById('immo_telephone')?.value.trim() || '';
+    const emailVal = document.getElementById('immo_email')?.value.trim() || '';
+    const typeEl = document.getElementById('immo_type');
+    const typeVal = typeEl ? typeEl.options[typeEl.selectedIndex]?.text : '';
+    const zoneEl = document.getElementById('immo_zone');
+    const zoneVal = zoneEl ? zoneEl.options[zoneEl.selectedIndex]?.text : '';
+    const msgVal = document.getElementById('immo_message')?.value.trim() || '';
+
+    const lines = [
+      'Bonjour TOPO SABUGNOUMA WASSA,',
+      '',
+      'Je vous contacte concernant votre Pôle Immobilier (Parcelles) :',
+      nomVal ? `• Demandeur : ${nomVal}` : null,
+      telVal ? `• Téléphone : ${telVal}` : null,
+      emailVal ? `• E-mail : ${emailVal}` : null,
+      typeVal && !typeVal.includes('Sélectionner') ? `• Type de demande : ${typeVal}` : null,
+      zoneVal && !zoneVal.includes('Sélectionner') ? `• Zone : ${zoneVal}` : null,
+      msgVal ? `• Description : ${msgVal}` : null,
+      '',
+      'Merci de bien vouloir me recontacter pour échanger sur les disponibilités réelles.'
+    ].filter(Boolean);
+
+    return `https://wa.me/22376292949?text=${encodeURIComponent(lines.join('\n'))}`;
+  }
+
+  // Button WhatsApp direct click
+  const immoWaBtn = document.getElementById('immoWaBtn');
+  if (immoWaBtn) {
+    immoWaBtn.addEventListener('click', () => {
+      window.open(getImmoWhatsAppUrl(), '_blank');
+    });
+  }
+
+  // Form submission
+  immoForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    let valid = true;
+    Object.keys(immoFields).forEach(key => {
+      const el = document.getElementById(key);
+      const errEl = document.getElementById(key + 'Error');
+      if (el && !validateField(key, el, errEl, immoFields[key])) {
+        valid = false;
+      }
+    });
+
+    if (!valid) {
+      const firstError = immoForm.querySelector('.form-control.error, input.error');
+      if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    const submitBtn = document.getElementById('immoSubmitBtn');
+    if (submitBtn) {
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+    }
+
+    const alertBox = document.getElementById('immoFormAlert');
+    if (alertBox) alertBox.style.display = 'none';
+
+    const formData = new FormData(immoForm);
+
+    try {
+      const response = await fetch('send-mail.php', {
+        method: 'POST',
+        body: formData
+      });
+      if (alertBox) {
+        alertBox.className = 'alert-box alert-success';
+        alertBox.style.display = 'block';
+        alertBox.innerHTML = `
+          <strong>Votre demande immobilière a bien été transmise !</strong><br/>
+          Notre équipe examine votre requête. Vous serez contacté dans les plus brefs délais.<br/>
+          <div style="margin-top:12px;">
+            <a href="${getImmoWhatsAppUrl()}" target="_blank" class="btn btn-whatsapp" style="display:inline-flex; font-size:0.85rem; padding:8px 16px;">
+              Accélérer la réponse sur WhatsApp
+            </a>
+          </div>
+        `;
+        alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      immoForm.reset();
+      if (immoCharCount) immoCharCount.textContent = '0 / 1000';
+    } catch (err) {
+      if (alertBox) {
+        alertBox.className = 'alert-box alert-success';
+        alertBox.style.display = 'block';
+        alertBox.innerHTML = `
+          <strong>Votre demande a été enregistrée !</strong><br/>
+          Vous pouvez également échanger directement sur WhatsApp avec notre équipe :<br/>
+          <div style="margin-top:12px;">
+            <a href="${getImmoWhatsAppUrl()}" target="_blank" class="btn btn-whatsapp" style="display:inline-flex; font-size:0.85rem; padding:8px 16px;">
+              Discuter sur WhatsApp
+            </a>
+          </div>
+        `;
+        alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    } finally {
+      if (submitBtn) {
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+      }
+    }
+  });
+}
+
 function validateField(key, el, errEl, rules) {
   let error = '';
 

@@ -1,0 +1,20 @@
+# OS & System
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# IDE & Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs & temp
+*.log
+scratch/
+tmp/
+
+# Raw local original files (already standardized in images/)
+Agrement_TWS.jpeg
+Logo TSW*.png

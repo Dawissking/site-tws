@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Réalisations & Portfolio — TSW | Topographie & Cartographie Mali</title>
+  <meta name="description" content="Portfolio de TSW : illustrations et exemples de livrables en topographie, cartographie, SIG, implantation de chantier et études foncières au Mali." />
+  <meta name="keywords" content="réalisations topographie Mali, portfolio cartographie, exemples levés topographiques, illustrations SIG, projets topographiques Bamako" />
+  <link rel="canonical" href="https://www.tsw-topo.com/realisations.html" />
+  <meta property="og:title" content="Réalisations & Portfolio — TSW Topographie Mali" />
+  <meta property="og:description" content="Découvrez les types de travaux et livrables réalisés par TSW en topographie et géomatique." />
+  <meta property="og:image" content="images/topographe-terrain-bamako.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .portfolio-card { 
+      cursor: pointer; 
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--gray-mid);
+    }
+    .portfolio-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .portfolio-thumb {
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      background: var(--blue-deep);
+    }
+    .portfolio-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+    .portfolio-card:hover .portfolio-thumb img {
+      transform: scale(1.06);
+    }
+    .portfolio-badge-cat {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(16, 45, 112, 0.9);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(4px);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+    .portfolio-badge-zoom {
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--blue-deep);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+      z-index: 2;
+    }
+    .portfolio-card:hover .portfolio-badge-zoom {
+      transform: scale(1.12);
+      color: var(--blue-tech);
+    }
+    .portfolio-info {
+      padding: 22px;
+    }
+    .portfolio-info h4 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--blue-deep);
+    }
+    .portfolio-info p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--gray-text);
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header" id="siteHeader" role="banner">
+  <div class="header-inner">
+    <a href="index.html" class="logo-wrap"><img src="images/logo-tsw.png" alt="Logo TSW" class="logo-img" /></a>
+    <nav class="main-nav">
+      <a href="index.html">Accueil</a>
+      <a href="a-propos.html">À propos</a>
+      <a href="services.html">Services</a>
+      <a href="domaines.html">Domaines</a>
+      <a href="realisations.html" class="active">Réalisations</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <a href="https://wa.me/22376292949" class="btn-whatsapp-mini" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a href="contact.html" class="btn-devis-mini">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Demander un devis
+      </a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Accueil</a>
+  <a href="a-propos.html">À propos de TSW</a>
+  <a href="services.html">Nos services</a>
+  <a href="domaines.html">Domaines d'intervention</a>
+  <a href="realisations.html">Réalisations</a>
+  <a href="contact.html">Contact & Devis</a>
+  <div class="mobile-cta">
+    <a href="tel:+22376292949" class="cta-call">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.7 19.79 19.79 0 0 1 1.61 5.12 2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10.1a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+      Appeler
+    </a>
+    <a href="https://wa.me/22376292949" class="cta-wa" target="_blank" rel="noopener">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</nav>
+
+<main id="main-content">
+
+<section class="page-hero page-hero--realisations" aria-label="Réalisations & Portfolio">
+  <div class="container">
+    <div class="page-hero-inner">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <a href="index.html">Accueil</a><span class="sep">›</span><span class="current">Réalisations</span>
+      </nav>
+      <h1>Portfolio & Exemples de travaux</h1>
+      <p>Aperçu concret des types de travaux, relevés de terrain, cartes techniques et livrables d'ingénierie réalisés par TSW au Mali.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio -->
+<section class="section" aria-labelledby="portfolio-title">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="tag">Galerie technique</div>
+      <h2 id="portfolio-title">Types de travaux et livrables de terrain</h2>
+      <div class="divider"></div>
+      <p>Filtrez par discipline pour examiner nos compétences pratiques et nos livrables. Cliquez sur chaque visuel pour l'agrandir.</p>
+    </div>
+
+    <div class="fade-up" style="margin-bottom: 28px; padding: 14px 20px; background: #f0f6ff; border-left: 4px solid var(--blue-tech); border-radius: var(--radius-md); font-size: 0.86rem; color: var(--gray-text);">
+      <strong>Note :</strong> Les visuels présentés sont des exemples techniques illustratifs des types de travaux réalisés par TOPO SABUGNOUMA WASSA dans le cadre de ses activités courantes de topographie et cartographie au Mali.
+    </div>
+
+    <!-- Filtres sans emojis -->
+    <div class="portfolio-filters fade-up" role="group" aria-label="Filtres de portfolio">
+      <button class="filter-btn active" data-filter="all" id="filter-all">Tous</button>
+      <button class="filter-btn" data-filter="topographie" id="filter-topo">Topographie</button>
+      <button class="filter-btn" data-filter="chantier" id="filter-chantier">Chantier BTP</button>
+      <button class="filter-btn" data-filter="cartographie" id="filter-carto">Cartographie</button>
+      <button class="filter-btn" data-filter="sig" id="filter-sig">SIG & Données</button>
+      <button class="filter-btn" data-filter="foncier" id="filter-foncier">Foncier & Bornage</button>
+      <button class="filter-btn" data-filter="photo" id="filter-photo">Photogrammétrie Drone</button>
+    </div>
+
+    <!-- Grille portfolio avec vraies photos -->
+    <div class="portfolio-grid">
+
+      <!-- 1. Topographie Terrain -->
+      <article class="portfolio-card fade-up" data-category="topographie" data-lightbox="portfolio" data-lightbox-src="images/01_topographie_terrain.jpg" data-lightbox-caption="Levé topographique de terrain — Instruments de mesure et relevés de haute précision">
+        <div class="portfolio-thumb">
+          <span class="portfolio-badge-cat">Topographie</span>
+          <img src="images/01_topographie_terrain.jpg" alt="Levé topographique de terrain avec station totale de haute précision" loading="lazy" />
+          <div class="portfolio-badge-zoom" aria-label="Agrandir">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Levé topographique de terrain</h4>
+          <p>Plan topographique numérique de haute précision réalisé par station totale robotisée. Courbes de niveau, points côtés et modélisation du relief.</p>
+        </div>
+      </article>
+
+      <!-- 2. Plan de masse GNSS -->
+      <article class="portfolio-card fade-up d-1" data-category="topographie" data-lightbox="portfolio" data-lightbox-src="images/02_geodesie_gnss.jpg" data-lightbox-caption="Géodésie et positionnement GNSS — Plan de masse et implantation géométrique">
+        <div class="portfolio-thumb">
+          <span class="portfolio-badge-cat">Géodésie GNSS</span>
+          <img src="images/02_geodesie_gnss.jpg" alt="Récepteur GNSS et implantation géodésique de haute précision" loading="lazy" />
+          <div class="portfolio-badge-zoom" aria-label="Agrandir">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Positionnement GNSS et plan de masse</h4>
+          <p>Relevé précis d'un terrain avec intégration des limites bâties, des voiries environnantes et des réseaux apparents.</p>
+        </div>
+      </article>
+
+      <!-- 3. Implantation Chantier -->
+      <article class="portfolio-card fade-up d-2" data-category="chantier" data-lightbox="portfolio" data-lightbox-src="images/03_implantation_chantier_btp.jpg" data-lightbox-caption="Implantation d'axes de fondations et suivi de nivellement BTP">
+        <div class="portfolio-thumb">
+          <span class="portfolio-badge-cat">Chantier BTP</span>
+          <img src="images/03_implantation_chantier_btp.jpg" alt="Implantation d'ouvrages sur chantier BTP, contrôle géométrique" loading="lazy" />
+          <div class="portfolio-badge-zoom" aria-label="Agrandir">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Implantation d'ouvrages BTP</h4>
+          <p>Report sur le terrain des axes d'implantation d'infrastructures et de bâtiments conformément aux plans d'exécution validés.</p>
+        </div>
+      </article>
+
+      <!-- 4. Foncier / Lotissement drone -->
+      <article class="portfolio-card fade-up d-3" data-category="foncier" data-lightbox="portfolio" data-lightbox-src="images/13_etudes_foncieres_cadastre.jpg" data-lightbox-caption="Relevé parcellaire et bornage foncier — Délimitation de propriétés au Mali">
+        <div class="portfolio-thumb">
+          <span class="portfolio-badge-cat">Foncier & Cadastre</span>
+          <img src="images/13_etudes_foncieres_cadastre.jpg" alt="Relevé de parcelles foncières et opérations cadastrales au Mali" loading="lazy" />
+          <div class="portfolio-badge-zoom" aria-label="Agrandir">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Relevé parcellaire & Bornage</h4>
+          <p>Délimitation exacte des limites de propriétés, calcul de contenances réelles et matérialisation des bornes selon les titres authentiques.</p>
+        </div>
+      </article>
+
+      <!-- 5. Cartographie Bureau d'études -->
+      <article class="portfolio-card fade-up d-4" data-category="cartographie" data-lightbox="portfolio" data-lightbox-src="images/06_cartographie_plans.jpg" data-lightbox-caption="Production de cartes thématiques et plans techniques — Cartographie numérique TSW">
+        <div class="portfolio-thumb">
+          <span class="portfolio-badge-cat">Cartographie</span>
+          <img src="images/06_cartographie_plans.jpg" alt="Cartographie numérique et production de plans techniques" loading="lazy" />
+          <div class="portfolio-badge-zoom" aria-label="Agrandir">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Cartes thématiques et techniques</h4>
+          <p>Production de cartes thématiques, cartes d'occupation du sol et plans techniques adaptés aux besoins des bureaux d'études et ONG.</p>
+        </div>
+      </article>
+
+      <!-- 6. SIG & Données -->
+      <article class="portfolio-card fade-up d-5" data-category="sig" data-lightbox="portfolio" data-lightbox-src="images/05_sig_analyse_spatiale.jpg" data-lightbox-caption="SIG et analyse spatiale — Structuration de géodatabases et cartographie QGIS">
+        <div class="portfolio-thumb">
+          <span class="portfolio-badge-cat">SIG & Géomatique</span>
+          <img src="images/05_sig_analyse_spatiale.jpg" alt="Système d'information géographique et analyse spatiale de données territoriales" loading="lazy" />
+          <div class="portfolio-badge-zoom" aria-label="Agrandir">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Base de données géoréférencée</h4>
+          <p>Structuration de géodatabases, intégration de données GPS et analyses spatiales multicritères pour l'aide à la décision.</p>
+        </div>
+      </article>
+
+      <!-- 7. Photogrammétrie Drone -->
+      <article class="portfolio-card fade-up d-1" data-category="photo" data-lightbox="portfolio" data-lightbox-src="images/07_photogrammetrie_drone.jpg" data-lightbox-caption="Photogrammétrie drone — Orthophotos géoréférencées centimétriques">
+        <div class="portfolio-thumb">
+          <span class="portfolio-badge-cat">Photogrammétrie</span>
+          <img src="images/07_photogrammetrie_drone.jpg" alt="Drone pour photogrammétrie et production d'orthophotos géoréférencées" loading="lazy" />
+          <div class="portfolio-badge-zoom" aria-label="Agrandir">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Orthophotoplan par drone</h4>
+          <p>Imagerie aérienne géoréférencée centimétrique, idéale pour la cartographie rapide de grands domaines et le suivi de chantiers.</p>
+        </div>
+      </article>
+
+      <!-- 8. Modèle Numérique de Terrain (MNT) -->
+      <article class="portfolio-card fade-up d-2" data-category="photo" data-lightbox="portfolio" data-lightbox-src="images/08_modelisation_3d_terrain.jpg" data-lightbox-caption="Modélisation numérique 3D de terrain (MNT/MNS) et calcul volumétrique">
+        <div class="portfolio-thumb">
+          <span class="portfolio-badge-cat">Modélisation 3D</span>
+          <img src="images/08_modelisation_3d_terrain.jpg" alt="Modèle numérique de terrain 3D et courbes de niveau photogrammétrie" loading="lazy" />
+          <div class="portfolio-badge-zoom" aria-label="Agrandir">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Modélisation altimétrique (MNT/MNS)</h4>
+          <p>Extraction de courbes de niveau fines et calculs de cubatures de déblais/remblais pour l'aménagement foncier.</p>
+        </div>
+      </article>
+
+      <!-- 9. Topographie routière & réseaux -->
+      <article class="portfolio-card fade-up d-3" data-category="chantier" data-lightbox="portfolio" data-lightbox-src="images/10_topographie_routiere.jpg" data-lightbox-caption="Topographie routière et suivi d'infrastructures linéaires — Levés d'axes routiers">
+        <div class="portfolio-thumb">
+          <span class="portfolio-badge-cat">Routes & Infrastructures</span>
+          <img src="images/10_topographie_routiere.jpg" alt="Topographie routière et infrastructures linéaires, levés d'axes et profils en travers" loading="lazy" />
+          <div class="portfolio-badge-zoom" aria-label="Agrandir">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Topographie routière & réseaux</h4>
+          <p>Levé d'axe de voirie, profils en long et en travers, cubatures de terrassement et plans de récolement de réseaux viaires.</p>
+        </div>
+      </article>
+
+      <!-- 10. Relevés GPS et bornage de parcelles -->
+      <article class="portfolio-card fade-up d-1" data-category="foncier" data-lightbox="portfolio" data-lightbox-src="images/04_releves_gps_parcelles.jpg" data-lightbox-caption="Relevés GPS différentiels et délimitation de parcelles d'habitation">
+        <div class="portfolio-thumb">
+          <span class="portfolio-badge-cat">Foncier & Bornage</span>
+          <img src="images/04_releves_gps_parcelles.jpg" alt="Relevé GPS et sécurisation de parcelle d'habitation au Mali" loading="lazy" />
+          <div class="portfolio-badge-zoom" aria-label="Agrandir">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Délimitation et bornage de parcelle</h4>
+          <p>Levé GPS centimétrique des limites de concession, calcul de superficie exacte et sécurisation de dossier foncier.</p>
+        </div>
+      </article>
+
+      <!-- 11. Topographie minière et carrières -->
+      <article class="portfolio-card fade-up d-2" data-category="topographie" data-lightbox="portfolio" data-lightbox-src="images/09_topographie_miniere.jpg" data-lightbox-caption="Topographie minière — Suivi altimétrique et cubatures d'excavation">
+        <div class="portfolio-thumb">
+          <span class="portfolio-badge-cat">Mines & Carrières</span>
+          <img src="images/09_topographie_miniere.jpg" alt="Levés topographiques sur site minier et carrières" loading="lazy" />
+          <div class="portfolio-badge-zoom" aria-label="Agrandir">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Topographie minière & excavation</h4>
+          <p>Relevés réguliers des fronts de taille, cubatures de déblais miniers et surveillance géométrique des talus.</p>
+        </div>
+      </article>
+
+      <!-- 12. Implantation d'ouvrages d'art -->
+      <article class="portfolio-card fade-up d-3" data-category="chantier" data-lightbox="portfolio" data-lightbox-src="images/15_topographie_ouvrages_art.jpg" data-lightbox-caption="Implantation et auscultation géométrique d'ouvrages d'art">
+        <div class="portfolio-thumb">
+          <span class="portfolio-badge-cat">Ouvrages d'art</span>
+          <img src="images/15_topographie_ouvrages_art.jpg" alt="Implantation géométrique et contrôle topographique d'ouvrage d'art" loading="lazy" />
+          <div class="portfolio-badge-zoom" aria-label="Agrandir">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Implantation d'ouvrages d'art</h4>
+          <p>Guidage géométrique de haute précision pour piles de ponts, dalots et structures hydrauliques critiques.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Section CTA -->
+<section class="section cta-section" aria-labelledby="cta-port-title">
+  <div class="container">
+    <div class="cta-inner fade-up">
+      <div class="tag" style="background:rgba(255,255,255,0.1); color:rgba(255,255,255,0.9); border-color:rgba(255,255,255,0.2); margin-bottom:20px; display:inline-flex;">
+        Votre projet
+      </div>
+      <h2 id="cta-port-title">Vous souhaitez obtenir des livrables similaires ?</h2>
+      <p>Nos équipes interviennent rapidement à Bamako et dans toutes les régions du Mali pour effectuer vos relevés de terrain et produire vos plans d'ingénierie.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-primary btn-lg">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Demander une étude et devis
+        </a>
+        <a href="https://wa.me/22376292949" class="btn btn-whatsapp" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Discuter sur WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo-tsw.png" alt="Logo TSW" class="footer-logo" />
+        <p class="footer-desc">TOPO SABUGNOUMA WASSA est spécialisée dans les travaux de cartographie et de topographie au Mali. Entrepreneur des Travaux Cartographiques et Topographiques, agréé auprès de l'API-Mali.</p>
+        <div class="footer-contacts">
+          <a href="tel:+22376292949" class="footer-contact-item">
+            <span class="icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.7 19.79 19.79 0 0 1 1.61 5.12 2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10.1a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+            </span>
+            +223 76 29 29 49
+          </a>
+          <a href="tel:+22360302014" class="footer-contact-item">
+            <span class="icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.7 19.79 19.79 0 0 1 1.61 5.12 2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10.1a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+            </span>
+            +223 60 30 20 14
+          </a>
+          <a href="tel:+22320749261" class="footer-contact-item">
+            <span class="icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.7 19.79 19.79 0 0 1 1.61 5.12 2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10.1a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+            </span>
+            +223 20 74 92 61
+          </a>
+          <div class="footer-contact-item">
+            <span class="icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            Doumanzana Nafadji, Bamako, Mali
+          </div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul class="footer-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="a-propos.html">À propos de TSW</a></li>
+          <li><a href="services.html">Nos services</a></li>
+          <li><a href="domaines.html">Domaines d'intervention</a></li>
+          <li><a href="realisations.html">Réalisations</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Nos services</h5>
+        <ul class="footer-links">
+          <li><a href="services.html#topographie">Topographie</a></li>
+          <li><a href="services.html#foncier">Foncier & Cadastre</a></li>
+          <li><a href="services.html#cartographie">Cartographie</a></li>
+          <li><a href="services.html#sig">Géomatique & SIG</a></li>
+          <li><a href="services.html#geodesie">Géodésie & GNSS</a></li>
+          <li><a href="services.html#photo">Photogrammétrie</a></li>
+          <li><a href="services.html#chantier">Topographie de chantier</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact rapide</h5>
+        <p style="font-size:0.85rem; color:rgba(255,255,255,0.5); margin-bottom:16px; line-height:1.6;">Doumanzana, rue 281, porte 162<br/>Bamako, Mali<br/>Repère : Doumanzana Nafadji</p>
+        <a href="https://wa.me/22376292949" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#25D366,#128C7E);color:white;padding:12px 16px;border-radius:8px;font-size:0.88rem;font-weight:600;margin-bottom:10px;transition:all 0.3s;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Écrire sur WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 TOPO SABUGNOUMA WASSA (TSW) — Tous droits réservés</div>
+    <div class="footer-bottom-links">
+      <a href="confidentialite.html">Politique de confidentialité</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

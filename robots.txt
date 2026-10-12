@@ -1,0 +1,8 @@
+# Robots.txt — TOPO SABUGNOUMA WASSA (TSW)
+# Site web officiel d'ingénierie topographique et cartographique au Mali
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://tsw-topo.com/sitemap.xml
